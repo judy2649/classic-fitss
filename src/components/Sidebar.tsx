@@ -1,8 +1,6 @@
 import React from 'react';
 import { useShop } from '../context/ShopContext';
-import { Tag } from 'lucide-react';
-
-import { X } from 'lucide-react';
+import { Tag, X, Mail } from 'lucide-react';
 
 export default function Sidebar() {
   const { categories, currentCategory, setCurrentCategory, isMobileMenuOpen, setIsMobileMenuOpen } = useShop();
@@ -72,6 +70,18 @@ export default function Sidebar() {
         <button className="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2 mt-2 rounded uppercase tracking-widest transition-colors w-full shadow-sm">
           Shop Trending
         </button>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-sm border border-stone-100 p-5 mt-auto">
+        <h4 className="text-sm font-bold text-stone-800 uppercase mb-2">Need Help?</h4>
+        <p className="text-xs text-stone-500 mb-2">Contact our customer support for any inquiries.</p>
+        <a 
+          href="mailto:classyfits651@gmail.com" 
+          className="flex items-center justify-center gap-2 bg-stone-800 hover:bg-stone-900 text-white text-xs font-bold px-4 py-2.5 mt-3 rounded-full uppercase tracking-widest transition-colors w-full shadow-sm"
+        >
+          <Mail size={14} />
+          Email Us
+        </a>
       </div>
     </aside>
     </>

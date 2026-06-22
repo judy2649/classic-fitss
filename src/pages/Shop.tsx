@@ -11,14 +11,14 @@ export default function Shop() {
     <div className="min-h-screen bg-rose-50/50 flex flex-col font-sans">
       <Header />
       
-      <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col min-h-0">
-        <div className="flex flex-col lg:flex-row gap-4 h-full">
+      <main className="flex-1 max-w-[1400px] w-full mx-auto px-2 sm:px-6 lg:px-8 py-3 sm:py-6 flex flex-col min-h-0">
+        <div className="flex flex-col lg:flex-row gap-6 h-full">
           <Sidebar />
           
-          <section className="flex-1 flex flex-col gap-4 bg-white rounded-3xl p-6 border border-rose-100 shadow-sm min-h-[500px]">
+          <section className="flex-1 flex flex-col gap-4 sm:bg-white sm:rounded-3xl sm:p-6 sm:border sm:border-rose-100 sm:shadow-sm min-h-[500px]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between shrink-0 gap-4">
               <div>
-                <h2 className="text-2xl font-serif text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-serif text-stone-900 tracking-tight">
                   {searchQuery ? `Search Results` : currentCategory === 'All' ? 'Curated Collections' : currentCategory}
                 </h2>
                 <p className="text-sm text-stone-500">
@@ -28,7 +28,6 @@ export default function Shop() {
               <div className="flex gap-2">
                 <span className="px-3 py-1 rounded-full bg-rose-50 text-[10px] font-bold text-rose-600 uppercase border border-rose-100">All Fits</span>
                 <span className="px-3 py-1 rounded-full bg-stone-50 text-[10px] font-bold text-stone-400 uppercase">New Arrival</span>
-                <span className="px-3 py-1 rounded-full bg-stone-50 text-[10px] font-bold text-stone-400 uppercase">Sale</span>
               </div>
             </div>
 
@@ -43,7 +42,7 @@ export default function Shop() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 mt-2">
                 {filteredProducts.map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
