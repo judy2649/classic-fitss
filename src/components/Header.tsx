@@ -69,23 +69,14 @@ export default function Header() {
               </span>
             </div>
           </div>
-          {userRole ? (
+          {userRole === 'admin' ? (
             <>
-              {userRole === 'admin' ? (
-                <Link to="/admin" className="flex items-center gap-2 hover:text-rose-500 transition-colors group">
-                  <div className="w-8 h-8 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center group-hover:border-rose-300 transition-colors shadow-sm">
-                    <User size={16} className="text-rose-600" />
-                  </div>
-                  <span className="hidden md:inline font-medium text-[10px] uppercase tracking-widest text-stone-600">Admin</span>
-                </Link>
-              ) : (
-                <div className="flex items-center gap-2 group">
-                  <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-200 flex items-center justify-center shadow-sm">
-                    <User size={16} className="text-stone-600" />
-                  </div>
-                  <span className="hidden md:inline font-medium text-[10px] uppercase tracking-widest text-stone-600">User</span>
+              <Link to="/admin" className="flex items-center gap-2 hover:text-rose-500 transition-colors group">
+                <div className="w-8 h-8 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center group-hover:border-rose-300 transition-colors shadow-sm">
+                  <User size={16} className="text-rose-600" />
                 </div>
-              )}
+                <span className="hidden md:inline font-medium text-[10px] uppercase tracking-widest text-stone-600">Admin</span>
+              </Link>
               
               <button onClick={handleLogout} className="flex items-center gap-1 sm:gap-2 hover:text-rose-500 transition-colors group">
                 <LogOut size={18} />
@@ -94,7 +85,7 @@ export default function Header() {
             </>
           ) : (
             <Link to="/login" className="flex items-center gap-2 bg-rose-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-xs font-semibold hover:bg-rose-600 transition-colors shadow-sm">
-              Login
+              Admin Access
             </Link>
           )}
         </div>
