@@ -101,7 +101,7 @@ export default function Admin() {
                       <input type="text" required value={name} onChange={e => setName(e.target.value)} className="bg-white border border-rose-200 rounded p-2 text-sm focus:outline-none focus:border-rose-400 text-stone-800 shadow-sm" placeholder="e.g. Linen Blazer" />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] text-stone-500 uppercase font-bold">Price <span className="lowercase font-normal text-stone-400">(KSH)</span></label>
+                      <label className="text-[10px] text-stone-500 uppercase font-bold">Price <span className="lowercase font-normal text-stone-400">(UGX)</span></label>
                       <input type="number" required min="0" value={price} onChange={e => setPrice(e.target.value)} className="bg-white border border-rose-200 rounded p-2 text-sm focus:outline-none focus:border-rose-400 text-stone-800 shadow-sm" placeholder="0" />
                     </div>
                     <div className="flex flex-col gap-1">
@@ -185,7 +185,7 @@ export default function Admin() {
                           </span>
                         </td>
                         <td className="px-4 py-3">
-                          <div className="font-bold text-rose-500 font-serif">KSh {product.price.toLocaleString()}</div>
+                          <div className="font-bold text-rose-500 font-serif">UGX {product.price.toLocaleString()}</div>
                         </td>
                         <td className="px-4 py-3 text-right">
                           <button 

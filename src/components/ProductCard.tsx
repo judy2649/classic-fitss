@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
         </div>
         <div className="text-xl font-bold text-rose-500 font-serif whitespace-nowrap">
-          KSh {product.price.toLocaleString()}
+          UGX {product.price.toLocaleString()}
         </div>
       </div>
     </div>

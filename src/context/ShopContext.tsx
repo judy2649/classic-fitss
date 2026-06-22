@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { Product } from '../types';
 import { INITIAL_PRODUCTS } from '../data';
 
+export type UserRole = 'admin' | 'user' | null;
+
 interface ShopContextType {
   products: Product[];
   categories: string[];
@@ -14,6 +16,9 @@ interface ShopContextType {
   setSearchQuery: (query: string) => void;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (isOpen: boolean) => void;
+  userRole: UserRole;
+  login: (role: UserRole) => void;
+  logout: () => void;
 }
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
@@ -23,6 +28,7 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
   const [currentCategory, setCurrentCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [userRole, setUserRole] = useState<UserRole>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('classyFitsProducts_v2');
@@ -31,6 +37,11 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     } else {
       setProducts(INITIAL_PRODUCTS);
       localStorage.setItem('classyFitsProducts_v2', JSON.stringify(INITIAL_PRODUCTS));
+    }
+    
+    const savedRole = localStorage.getItem('classyFitsRole') as UserRole;
+    if (savedRole) {
+      setUserRole(savedRole);
     }
   }, []);
 
@@ -48,6 +59,16 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     const updated = products.filter(p => p.id !== id);
     setProducts(updated);
     localStorage.setItem('classyFitsProducts_v2', JSON.stringify(updated));
+  };
+  
+  const login = (role: UserRole) => {
+    setUserRole(role);
+    localStorage.setItem('classyFitsRole', role || '');
+  };
+  
+  const logout = () => {
+    setUserRole(null);
+    localStorage.removeItem('classyFitsRole');
   };
 
   const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
@@ -71,7 +92,10 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
       searchQuery,
       setSearchQuery,
       isMobileMenuOpen,
-      setIsMobileMenuOpen
+      setIsMobileMenuOpen,
+      userRole,
+      login,
+      logout
     }}>
       {children}
     </ShopContext.Provider>

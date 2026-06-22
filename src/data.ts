@@ -4,8 +4,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Elegant Pink Evening Gown',
-    price: 4500,
-    originalPrice: 6000,
+    price: 135000,
+    originalPrice: 180000,
     image: 'https://images.unsplash.com/photo-1566160983933-28787f174ee9?auto=format&fit=crop&q=80&w=800',
     category: 'Clothes',
     description: 'A beautiful and elegant pink evening gown for special occasions.',
@@ -15,7 +15,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'Rose Gold Sequin Wrap Dress',
-    price: 3200,
+    price: 96000,
     image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800',
     category: 'Clothes',
     description: 'Stunning wrap dress with rose gold sequins.',
@@ -25,8 +25,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '3',
     name: 'Blush Pink Stiletto Heels',
-    price: 3500,
-    originalPrice: 4200,
+    price: 105000,
+    originalPrice: 126000,
     image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800',
     category: 'Heels',
     description: 'Elegant stiletto heels perfect for formal wear.',
@@ -36,7 +36,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '4',
     name: 'Rose Leather Crossbody Bag',
-    price: 2800,
+    price: 84000,
     image: 'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&q=80&w=800',
     category: 'Bags',
     description: 'Premium leather crossbody bag in a soft rose hue.',
@@ -46,7 +46,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '5',
     name: 'Floral Chiffon Midi Dress',
-    price: 2200,
+    price: 66000,
     image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=800',
     category: 'Clothes',
     description: 'Lightweight chiffon dress with delicate floral prints.',
@@ -56,8 +56,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '6',
     name: 'Rose Quartz Statement Necklace',
-    price: 850,
-    originalPrice: 1100,
+    price: 25500,
+    originalPrice: 33000,
     image: 'https://images.unsplash.com/photo-1599643478524-fb66f809966b?auto=format&fit=crop&q=80&w=800',
     category: 'Accessories',
     description: 'Gorgeous statement necklace featuring natural rose quartz stones.',
