@@ -1,0 +1,6 @@
+{
+  "name": "Classy Fits",
+  "description": "Elegant apparel shop with user and admin dashboards. Inspired by Jumia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
