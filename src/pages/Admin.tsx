@@ -15,6 +15,17 @@ export default function Admin() {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !price || !image || !category) return;
@@ -102,8 +113,21 @@ export default function Admin() {
                       <input type="text" required value={category} onChange={e => setCategory(e.target.value)} className="bg-white border border-rose-200 rounded p-2 text-sm focus:outline-none focus:border-rose-400 text-stone-800 shadow-sm" placeholder="e.g. Dresses" />
                     </div>
                     <div className="col-span-2 flex flex-col gap-1">
-                      <label className="text-[10px] text-stone-500 uppercase font-bold">Image URL</label>
-                      <input type="url" required value={image} onChange={e => setImage(e.target.value)} className="bg-white border border-rose-200 rounded p-2 text-sm focus:outline-none focus:border-rose-400 text-stone-800 shadow-sm" placeholder="https://..." />
+                      <label className="text-[10px] text-stone-500 uppercase font-bold">Product Image</label>
+                      <label className="bg-white border border-rose-200 border-dashed rounded-lg p-4 text-center cursor-pointer hover:bg-rose-50 transition-colors shadow-sm relative overflow-hidden group">
+                        <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
+                        {image ? (
+                          <div className="flex flex-col items-center">
+                            <img src={image} alt="Preview" className="h-20 w-auto object-cover rounded mb-2" />
+                            <span className="text-xs text-rose-500 font-semibold group-hover:text-rose-600">Change Image</span>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center py-4">
+                            <svg className="w-6 h-6 mb-2 text-stone-400 group-hover:text-rose-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
+                            <span className="text-xs text-stone-500 group-hover:text-rose-500 font-medium transition-colors">Click to upload picture</span>
+                          </div>
+                        )}
+                      </label>
                     </div>
                     <div className="col-span-2 flex flex-col gap-1">
                       <label className="text-[10px] text-stone-500 uppercase font-bold">Description</label>
