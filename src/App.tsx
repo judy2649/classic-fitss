@@ -17,7 +17,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<ProtectedRoute><Shop /></ProtectedRoute>} />
+          <Route path="/" element={<Shop />} />
           <Route path="/admin" element={<ProtectedRoute reqRole="admin"><Admin /></ProtectedRoute>} />
         </Routes>
         <WhatsAppButton />

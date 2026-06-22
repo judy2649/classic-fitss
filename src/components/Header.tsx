@@ -61,6 +61,14 @@ export default function Header() {
             <Mail size={20} />
           </a>
           
+          <div className="flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer group mr-1">
+            <div className="relative">
+              <ShoppingCart size={20} />
+              <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm">
+                0
+              </span>
+            </div>
+          </div>
           {userRole ? (
             <>
               {userRole === 'admin' ? (
@@ -83,14 +91,6 @@ export default function Header() {
                 <LogOut size={18} />
                 <span className="hidden md:inline font-medium text-[10px] uppercase tracking-widest text-stone-600 group-hover:text-rose-500">Log Out</span>
               </button>
-              <div className="flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer group">
-                <div className="relative">
-                  <ShoppingCart size={20} />
-                  <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm">
-                    0
-                  </span>
-                </div>
-              </div>
             </>
           ) : (
             <Link to="/login" className="flex items-center gap-2 bg-rose-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-xs font-semibold hover:bg-rose-600 transition-colors shadow-sm">

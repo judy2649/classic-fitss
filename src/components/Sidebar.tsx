@@ -20,7 +20,7 @@ export default function Sidebar() {
         fixed lg:sticky lg:top-[6.5rem] left-0 top-0 h-full lg:h-[calc(100vh-9rem)]
         w-72 lg:w-64 shrink-0 flex flex-col gap-4 z-50 lg:z-0
         bg-rose-50/95 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none
-        p-4 lg:p-0
+        p-4 lg:p-0 overflow-y-auto
         transition-transform duration-300 ease-in-out border-r border-rose-200 lg:border-none
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
@@ -34,7 +34,7 @@ export default function Sidebar() {
           </button>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-rose-100 p-4 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm border border-rose-100 p-4 shrink-0">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-bold text-stone-800 uppercase tracking-wide border-l-4 border-rose-400 pl-3">
               Filters
@@ -62,7 +62,7 @@ export default function Sidebar() {
         </ul>
       </div>
 
-      <div className="bg-rose-50 rounded-xl shadow-sm border border-rose-200 p-5 text-stone-900 flex flex-col gap-2 bg-gradient-to-br from-rose-50 to-pink-100">
+      <div className="bg-rose-50 rounded-xl shadow-sm border border-rose-200 p-5 text-stone-900 flex flex-col gap-2 bg-gradient-to-br from-rose-50 to-pink-100 shrink-0">
         <h4 className="text-sm font-bold text-rose-600 uppercase flex items-center gap-2">
           New Arrivals
         </h4>
@@ -72,7 +72,7 @@ export default function Sidebar() {
         </button>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-stone-100 p-5 mt-auto">
+      <div className="bg-white rounded-xl shadow-sm border border-stone-100 p-5 mt-auto shrink-0">
         <h4 className="text-sm font-bold text-stone-800 uppercase mb-2">Need Help?</h4>
         <p className="text-xs text-stone-500 mb-2">Contact our customer support for any inquiries.</p>
         <a 
