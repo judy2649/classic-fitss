@@ -2,31 +2,24 @@ import React from 'react';
 import { ShoppingCart, Search, User, Menu, Heart } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useShop } from '../context/ShopContext';
+import logoUrl from '../assets/images/classy_fits_rose_logo_1782158814631.jpg';
 
 export default function Header() {
-  const { searchQuery, setSearchQuery } = useShop();
+  const { searchQuery, setSearchQuery, isMobileMenuOpen, setIsMobileMenuOpen } = useShop();
   const navigate = useNavigate();
 
   return (
-    <header className="h-16 bg-white flex items-center justify-between px-8 shrink-0 shadow-sm border-b border-rose-100 z-10 sticky top-0">
+    <header className="h-20 bg-white flex items-center justify-between px-8 shrink-0 shadow-sm border-b border-rose-100 z-10 sticky top-0">
       <div className="flex items-center gap-4 shrink-0">
-        <button className="lg:hidden text-stone-500 hover:text-rose-500 transition-colors">
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden text-stone-500 hover:text-rose-500 transition-colors"
+        >
           <Menu size={24} />
         </button>
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded flex items-center justify-center text-rose-500 font-serif font-bold text-xl relative overflow-hidden bg-rose-50 border border-rose-100 shadow-sm">
-            <svg viewBox="0 0 100 100" className="w-8 h-8 drop-shadow-sm text-rose-400" fill="currentColor">
-              <path d="M45,25 Q35,25 35,50 Q35,75 55,75 Q65,75 70,65 L65,60 Q60,68 50,68 Q41,68 41,50 Q41,32 50,32 L45,25 Z"/>
-              <path d="M50,15 L55,10 L60,15 L62,13 L55,6 L48,13 L50,15 Z"/>
-              <path d="M55,30 L75,30 L75,35 L60,35 L60,45 L70,45 L70,50 L60,50 L60,80 L55,80 L55,30 Z"/>
-              <path d="M57,38 Q65,60 50,85 Q75,80 72,50 Q65,40 57,38 Z" fill="url(#rose-grad)" opacity="0.8"/>
-              <defs>
-                <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:'#f43f5e', stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:'#fda4af', stopOpacity:1}} />
-                </linearGradient>
-              </defs>
-            </svg>
+          <div className="w-14 h-14 rounded-full flex items-center justify-center text-rose-500 font-serif font-bold text-xl relative overflow-hidden bg-rose-50 border border-rose-100 shadow-sm">
+            <img src={logoUrl} alt="Classy Fits Logo" className="w-full h-full object-cover" />
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="text-stone-800 font-serif text-2xl tracking-tight leading-none">Classy <span className="text-rose-500 italic">Fits</span></span>
@@ -74,7 +67,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Search */}
-      <div className="absolute top-16 left-0 w-full bg-white p-3 sm:hidden border-b border-rose-100 shadow-sm z-20">
+      <div className="absolute top-20 left-0 w-full bg-white p-3 sm:hidden border-b border-rose-100 shadow-sm z-20">
         <div className="relative w-full flex">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="h-4 w-4 text-stone-400" />

@@ -12,6 +12,8 @@ interface ShopContextType {
   setCurrentCategory: (cat: string) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (isOpen: boolean) => void;
 }
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
@@ -20,14 +22,15 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('classyFitsProducts');
+    const saved = localStorage.getItem('classyFitsProducts_v2');
     if (saved) {
       setProducts(JSON.parse(saved));
     } else {
       setProducts(INITIAL_PRODUCTS);
-      localStorage.setItem('classyFitsProducts', JSON.stringify(INITIAL_PRODUCTS));
+      localStorage.setItem('classyFitsProducts_v2', JSON.stringify(INITIAL_PRODUCTS));
     }
   }, []);
 
@@ -38,13 +41,13 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     };
     const updated = [newProduct, ...products];
     setProducts(updated);
-    localStorage.setItem('classyFitsProducts', JSON.stringify(updated));
+    localStorage.setItem('classyFitsProducts_v2', JSON.stringify(updated));
   };
 
   const deleteProduct = (id: string) => {
     const updated = products.filter(p => p.id !== id);
     setProducts(updated);
-    localStorage.setItem('classyFitsProducts', JSON.stringify(updated));
+    localStorage.setItem('classyFitsProducts_v2', JSON.stringify(updated));
   };
 
   const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
@@ -66,7 +69,9 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
       currentCategory,
       setCurrentCategory,
       searchQuery,
-      setSearchQuery
+      setSearchQuery,
+      isMobileMenuOpen,
+      setIsMobileMenuOpen
     }}>
       {children}
     </ShopContext.Provider>
