@@ -9,7 +9,7 @@ import Admin from './pages/Admin';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import { ShopProvider } from './context/ShopContext';
-import WhatsAppButton from './components/WhatsAppButton';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 export default function App() {
   return (
@@ -20,7 +20,7 @@ export default function App() {
           <Route path="/" element={<Shop />} />
           <Route path="/admin" element={<ProtectedRoute reqRole="admin"><Admin /></ProtectedRoute>} />
         </Routes>
-        <WhatsAppButton />
+        <FloatingContactButtons />
       </Router>
     </ShopProvider>
   );

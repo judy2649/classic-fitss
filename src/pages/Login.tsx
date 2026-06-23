@@ -39,7 +39,7 @@ export default function Login() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter classyfits651@gmail.com"
+              placeholder="Admin Email Address"
               className="w-full border border-stone-200 rounded px-4 py-3 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent text-sm"
               required
             />

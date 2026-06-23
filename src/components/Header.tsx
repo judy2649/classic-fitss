@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart, Search, User, Menu, Heart, LogOut, Mail } from 'lucide-react';
+import { ShoppingCart, Search, User, Menu, Heart, LogOut, Mail, Instagram } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useShop } from '../context/ShopContext';
 import logoUrl from '../assets/images/classy_fits_premium_logo_1782161964560.jpg';
@@ -53,13 +53,23 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3 sm:gap-5 shrink-0 text-stone-500">
-          <a href="mailto:classyfits651@gmail.com" className="hidden sm:flex items-center gap-2 hover:text-rose-500 transition-colors group mr-2">
-            <Mail size={18} />
-            <span className="hidden md:inline font-medium text-[10px] uppercase tracking-widest text-stone-600 group-hover:text-rose-500">Email Us</span>
-          </a>
-          <a href="mailto:classyfits651@gmail.com" className="sm:hidden text-stone-500 hover:text-rose-500 transition-colors">
-            <Mail size={20} />
-          </a>
+          <div className="flex items-center gap-3 sm:gap-4 mr-1 sm:mr-2">
+            <a href="https://www.instagram.com/kenzie_778?igsh=OTMzZzQ4bHQydDZ0" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-rose-500 transition-colors" title="Instagram">
+              <Instagram size={18} className="sm:w-5 sm:h-5" />
+            </a>
+            <a href="https://www.tiktok.com/@kenzie.38" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-rose-500 transition-colors" title="TikTok">
+              <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+            <a href="mailto:classyfits651@gmail.com" className="text-stone-500 hover:text-rose-500 transition-colors hidden sm:flex items-center gap-2" title="Email Us">
+              <Mail size={18} className="sm:w-5 sm:h-5" />
+              <span className="font-medium text-[10px] uppercase tracking-widest text-stone-600 hover:text-rose-500">Email Us</span>
+            </a>
+            <a href="mailto:classyfits651@gmail.com" className="text-stone-500 hover:text-rose-500 transition-colors sm:hidden" title="Email Us">
+              <Mail size={18} className="w-[18px] h-[18px]" />
+            </a>
+          </div>
           
           <div className="flex items-center gap-2 hover:text-rose-500 transition-colors cursor-pointer group mr-1">
             <div className="relative">
